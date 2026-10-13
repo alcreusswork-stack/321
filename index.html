@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIRAI体操クラブ｜1歳半から始められる体操教室（静岡県沼津市）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal:    #2DB8B0;
+    --coral:   #FF6B6B;
+    --yellow:  #FFD166;
+    --navy:    #1A3A4A;
+    --ivory:   #FFF9F0;
+    --white:   #FFFFFF;
+    --gray:    #F3F3F3;
+    --text:    #333333;
+    --radius:  20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--ivory);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  /* =====================
+     HEADER
+  ===================== */
+  header {
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    padding: 14px 20px;
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .header-logo a {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    color: var(--teal);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-logo a span.sub {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+    line-height: 1.2;
+  }
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .header-contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .header-tel {
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .header-tel span {
+    font-size: 1.1rem;
+    color: var(--coral);
+  }
+  .btn-trial-sm {
+    background: var(--coral);
+    color: var(--white);
+    font-weight: 700;
+    font-size: .82rem;
+    padding: 8px 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity .2s;
+  }
+  .btn-trial-sm:hover { opacity: .85; }
+
+  /* =====================
+     HERO IMAGE
+  ===================== */
+  .hero-img-wrap {
+    width: 100%;
+    line-height: 0;
+  }
+  .hero-img-wrap img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* =====================
+     HERO TEXT
+  ===================== */
+  .hero-text {
+    background: linear-gradient(135deg, #E8F9F8 0%, #FFF5E6 100%);
+    padding: 56px 20px 64px;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--navy);
+    font-weight: 900;
+    font-size: .78rem;
+    padding: 4px 16px;
+    border-radius: 50px;
+    margin-bottom: 18px;
+    letter-spacing: .04em;
+  }
+  .hero-text h1 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .hero-text h1 em {
+    font-style: normal;
+    color: var(--teal);
+  }
+  .hero-text p {
+    font-size: clamp(.88rem, 2.5vw, 1rem);
+    color: #555;
+    max-width: 560px;
+    margin: 0 auto 32px;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--coral);
+    color: var(--white);
+    font-weight: 900;
+    font-size: 1.05rem;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(255,107,107,.4);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,107,107,.45); }
+
+  /* =====================
+     SECTION BASE
+  ===================== */
+  section { padding: 60px 20px; }
+  .inner { max-width: 860px; margin: 0 auto; }
+  .sec-tag {
+    display: inline-block;
+    font-family: 'Fredoka One', cursive;
+    font-size: .8rem;
+    color: var(--teal);
+    letter-spacing: .08em;
+    margin-bottom: 6px;
+  }
+  .sec-title {
+    font-weight: 900;
+    font-size: clamp(1.3rem, 4vw, 1.9rem);
+    color: var(--navy);
+    margin-bottom: 36px;
+    line-height: 1.35;
+  }
+  .sec-title span { color: var(--coral); }
+
+  /* =====================
+     PICKUP（イチオシ）
+  ===================== */
+  .pickup { background: var(--white); }
+  .pickup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .pickup-card {
+    background: var(--ivory);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    border-top: 5px solid var(--teal);
+    position: relative;
+  }
+  .pickup-card:nth-child(2) { border-top-color: var(--coral); }
+  .pickup-card:nth-child(3) { border-top-color: var(--yellow); }
+  .pickup-card:nth-child(4) { border-top-color: var(--teal); }
+  .pickup-card:nth-child(5) { border-top-color: var(--coral); }
+  .pickup-icon { font-size: 2rem; margin-bottom: 12px; }
+  .pickup-card h3 {
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .pickup-card p { font-size: .88rem; color: #555; line-height: 1.65; }
+  .coming-badge {
+    display: inline-block;
+    background: #E8F9F8;
+    color: var(--teal);
+    font-size: .72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-top: 8px;
+  }
+
+  /* =====================
+     STRENGTHS（強み）
+  ===================== */
+  .strengths { background: var(--gray); }
+  .str-list { display: flex; flex-direction: column; gap: 20px; }
+  .str-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px 22px;
+  }
+  .str-num {
+    width: 44px;
+    height: 44px;
+    background: var(--teal);
+    color: var(--white);
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .str-item:nth-child(2) .str-num { background: var(--coral); }
+  .str-item:nth-child(3) .str-num { background: var(--yellow); color: var(--navy); }
+  .str-item h3 { font-weight: 900; font-size: 1rem; color: var(--navy); margin-bottom: 6px; }
+  .str-item p { font-size: .88rem; color: #555; }
+
+  /* =====================
+     REVIEWS（クチコミ）
+  ===================== */
+  .reviews { background: var(--white); }
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .review-card {
+    background: var(--ivory);
+    border-radius: var(--radius);
+    padding: 24px 22px;
+    position: relative;
+  }
+  .review-card::before {
+    content: '"';
+    font-family: 'Fredoka One', cursive;
+    font-size: 4rem;
+    color: var(--teal);
+    opacity: .2;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    line-height: 1;
+  }
+  .stars { color: #FFB800; font-size: 1.1rem; margin-bottom: 10px; }
+  .review-card p { font-size: .88rem; color: #444; line-height: 1.7; position: relative; }
+  .reviewer { font-size: .78rem; color: #999; margin-top: 12px; text-align: right; }
+
+  /* =====================
+     ACCESS
+  ===================== */
+  .access { background: var(--gray); }
+  .access-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+  }
+  .access-table { width: 100%; border-collapse: collapse; }
+  .access-table th,
+  .access-table td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee;
+    font-size: .9rem;
+    vertical-align: top;
+    text-align: left;
+  }
+  .access-table th {
+    width: 90px;
+    font-weight: 700;
+    color: var(--teal);
+    white-space: nowrap;
+  }
+  .access-table a { color: var(--teal); text-decoration: none; }
+  .map-wrap {
+    margin-top: 28px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    line-height: 0;
+  }
+  .map-wrap iframe { width: 100%; height: 320px; border: 0; }
+  .map-btn-wrap { text-align: center; margin-top: 16px; }
+  .btn-map {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--teal);
+    color: var(--white);
+    font-weight: 700;
+    font-size: .9rem;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .btn-map:hover { opacity: .85; }
+
+  /* =====================
+     FOOTER
+  ===================== */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.8);
+    padding: 40px 20px 24px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .footer-address {
+    font-size: .82rem;
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    font-size: .82rem;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-official {
+    margin-bottom: 20px;
+  }
+  .btn-official {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.3);
+    color: var(--white);
+    font-size: .85rem;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .btn-official:hover { background: rgba(255,255,255,.2); }
+  .footer-sns { display: flex; justify-content: center; gap: 16px; margin-bottom: 24px; }
+  .sns-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .sns-icon:hover { opacity: .8; }
+  .sns-icon.facebook { background: #1877F2; }
+  .sns-icon svg { width: 20px; height: 20px; fill: #fff; }
+  .footer-copy { font-size: .72rem; color: rgba(255,255,255,.45); }
+
+  /* =====================
+     RESPONSIVE
+  ===================== */
+  @media (max-width: 600px) {
+    .header-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .header-contact { width: 100%; justify-content: space-between; }
+    .str-item { flex-direction: column; gap: 10px; }
+    .access-table th { width: 72px; font-size: .82rem; }
+    .access-table td { font-size: .82rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-cta, .btn-map { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= HEADER ======= -->
+<header>
+  <div class="header-inner">
+    <div class="header-logo">
+      <a href="https://www.mirai-gym.com/" target="_blank" rel="noopener">
+        <span class="logo-mark">🤸</span>
+        <span>MIRAI体操クラブ<span class="sub">沼津市・大岡</span></span>
+      </a>
+    </div>
+    <div class="header-contact">
+      <a href="tel:0559290233" class="header-tel">📞 <span>055-929-0233</span></a>
+      <a href="mailto:mirai-gym@e-mail.jp" class="btn-trial-sm">✉ お問い合わせ</a>
+    </div>
+  </div>
+</header>
+
+<!-- ======= HERO IMAGE ======= -->
+<div class="hero-img-wrap">
+  <img src="images/hero321.png" alt="MIRAI体操クラブ　子どもたちが楽しく体操を学んでいる様子">
+</div>
+
+<!-- ======= HERO TEXT ======= -->
+<div class="hero-text">
+  <span class="hero-badge"></span>
+  <h1>「跳ぶ・回る・支える」<br><em>体操で子どもの笑顔を育てる</em></h1>
+  <p>1歳半の親子クラスから競技を目指す上級クラスまで。<br>成長に合わせた段階的な指導で、お子様の可能性を広げます。</p>
+  <a href="mailto:mirai-gym@e-mail.jp" class="hero-cta">🌟 まずはお問い合わせ</a>
+</div>
+
+<!-- ======= PICKUP（イチオシサービス）======= -->
+<section class="pickup">
+  <div class="inner">
+    <span class="sec-tag">PICKUP SERVICE</span>
+    <h2 class="sec-title">MIRAI体操クラブの<span>5つの特徴</span></h2>
+    <div class="pickup-grid">
+
+      <div class="pickup-card">
+        <div class="pickup-icon">👶</div>
+        <h3>1歳半から始める一貫指導</h3>
+        <p>親子クラスから幼児・小学生、さらに競技を目指す上級クラスまで、成長のステップに合わせた幅広い指導体制を整えています。</p>
+      </div>
+
+      <div class="pickup-card">
+        <div class="pickup-icon">🤸</div>
+        <h3>楽しく運動能力を向上</h3>
+        <p>遊びの要素を取り入れながら「跳ぶ・回る・支える」の基本動作を楽しく習得。お子様の運動能力と自信を着実に育みます。</p>
+      </div>
+
+      <div class="pickup-card">
+        <div class="pickup-icon">🏆</div>
+        <h3>競技大会への挑戦もサポート</h3>
+        <p>楽しむことを大切にしながら、育成クラスでは大会出場・入賞を目指すための本格的なサポートも行っています。</p>
+      </div>
+
+      <div class="pickup-card">
+        <div class="pickup-icon">🏛️</div>
+        <h3>充実の常設施設と設備</h3>
+        <p>マット・鉄棒・トランポリンなどを備えた専用常設施設で、安全に配慮された環境で一年中レッスンに集中できます。</p>
+      </div>
+
+      <div class="pickup-card">
+        <div class="pickup-icon">🚗</div>
+        <h3>無料駐車場完備・駅近</h3>
+        <p>無料の専用駐車場があり、お車での送迎もスムーズ。近隣市町からも通いやすい環境です。</p>
+        <span class="coming-badge">🔔 近日公開：練習動画の共有サービス</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======= STRENGTHS（強み）======= -->
+<section class="strengths">
+  <div class="inner">
+    <span class="sec-tag">OUR STRENGTHS</span>
+    <h2 class="sec-title">選ばれる<span>3つの理由</span></h2>
+    <div class="str-list">
+
+      <div class="str-item">
+        <div class="str-num">1</div>
+        <div>
+          <h3>幅広い対象年齢</h3>
+          <p>1歳半の親子クラスから選抜の上級クラスまで、成長に合わせた段階的な指導が受けられます。お子様の「好き」を長く伸ばし続けられる環境です。</p>
+        </div>
+      </div>
+
+      <div class="str-item">
+        <div class="str-num">2</div>
+        <div>
+          <h3>本格的な設備と競技実績</h3>
+          <p>マットや鉄棒に加え、トランポリン等の設備が充実。競技大会への出場や入賞実績も豊富で、楽しさと本格指導を両立しています。</p>
+        </div>
+      </div>
+
+      <div class="str-item">
+        <div class="str-num">3</div>
+        <div>
+          <h3>利便性の高いアクセス</h3>
+          <p>無料駐車場も完備しており、沼津市はもちろん近隣市町からも通いやすい環境です。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======= ACCESS ======= -->
+<section class="access">
+  <div class="inner">
+    <span class="sec-tag">ACCESS</span>
+    <h2 class="sec-title">アクセス・<span>お問い合わせ</span></h2>
+    <div class="access-box">
+      <table class="access-table">
+        <tr>
+          <th>教室名</th>
+          <td>MIRAI体操クラブ</td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td>〒410-0022 静岡県沼津市大岡２４２３</td>
+        </tr>
+        <tr>
+          <th>電話</th>
+          <td><a href="tel:0559290233">055-929-0233</a></td>
+        </tr>
+        <tr>
+          <th>メール</th>
+          <td><a href="mailto:mirai-gym@e-mail.jp">mirai-gym@e-mail.jp</a></td>
+        </tr>
+        <tr>
+          <th>公式HP</th>
+          <td><a href="https://www.mirai-gym.com/" target="_blank" rel="noopener">https://www.mirai-gym.com/</a></td>
+        </tr>
+      </table>
+
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.66354591765!2d138.8826758!3d35.115111399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60199b8d4190d94b%3A0x34eceeb1cee94a63!2zTUlSQUnkvZPmk43jgq_jg6njgpY!5e0!3m2!1sja!2sjp!4v1791264086532!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+
+      <div class="map-btn-wrap">
+        <a href="https://www.google.com/maps/place/MIRAI%E4%BD%93%E6%93%8D%E3%82%AF%E3%83%A9%E3%83%96/@35.1151114,138.8826758,17z/data=!3m1!4b1!4m6!3m5!1s0x60199b8d4190d94b:0x34eceeb1cee94a63!8m2!3d35.1151114!4d138.8826758!16s%2Fg%2F11jgvhqnmw?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn-map">
+          📍 Googleマップで見る
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="footer-logo">🤸 MIRAI体操クラブ</div>
+  <div class="footer-address">
+    〒410-0022 静岡県沼津市大岡２４２３<br>
+    TEL: <a href="tel:0559290233" style="color:rgba(255,255,255,.8);text-decoration:none;">055-929-0233</a>
+    ／ MAIL: <a href="mailto:mirai-gym@e-mail.jp" style="color:rgba(255,255,255,.8);text-decoration:none;">mirai-gym@e-mail.jp</a>
+  </div>
+
+  <div class="footer-official">
+    <a href="https://www.mirai-gym.com/" target="_blank" rel="noopener" class="btn-official">
+      🌐 公式サイトはこちら
+    </a>
+  </div>
+
+  <div class="footer-sns">
+    <!-- Facebook公式アイコン -->
+    <a href="https://www.facebook.com/MIRAI.GYM/" target="_blank" rel="noopener" class="sns-icon facebook" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="footer-links">
+    <a href="https://www.mirai-gym.com/" target="_blank" rel="noopener">公式サイト</a>
+    <a href="mailto:mirai-gym@e-mail.jp">お問い合わせ</a>
+    <a href="https://www.facebook.com/MIRAI.GYM/" target="_blank" rel="noopener">Facebook</a>
+  </div>
+
+  <p class="footer-copy">&copy; 2024 MIRAI体操クラブ All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
