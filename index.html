@@ -1,831 +1,837 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ファミリートランポリンクラブ｜沼津市のトランポリン教室</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --sky: #29B6F6;
-    --sky-light: #E1F5FE;
-    --orange: #FF7043;
-    --orange-light: #FFF3E0;
-    --mint: #E0F7FA;
-    --navy: #1A237E;
-    --navy-mid: #283593;
-    --white: #FFFFFF;
-    --text: #263238;
-    --text-light: #546E7A;
-    --radius: 20px;
-    --font: 'Zen Maru Gothic', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font);
-    color: var(--text);
-    background: var(--white);
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  img { max-width: 100%; display: block; }
-  a { text-decoration: none; color: inherit; }
-
-  /* ========== HEADER ========== */
-  .header {
-    background: var(--white);
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 12px rgba(41,182,246,0.15);
-    position: relative;
-    z-index: 10;
-  }
-
-  .header-name {
-    font-size: clamp(1rem, 3.5vw, 1.25rem);
-    font-weight: 900;
-    color: var(--navy);
-    line-height: 1.3;
-  }
-
-  .header-name a {
-    color: inherit;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .header-name a:hover { opacity: 0.75; }
-
-  .header-badge {
-    font-size: 0.6rem;
-    font-weight: 700;
-    background: var(--orange);
-    color: #fff;
-    padding: 2px 7px;
-    border-radius: 20px;
-    vertical-align: middle;
-    letter-spacing: 0.03em;
-  }
-
-  .header-tel {
-    font-size: clamp(0.85rem, 2.5vw, 1.05rem);
-    font-weight: 700;
-    color: var(--navy-mid);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .header-tel span { font-size: 1.1em; }
-
-  /* ========== HERO IMAGE ========== */
-  .hero-img-wrap {
-    width: 100%;
-    max-height: 520px;
-    overflow: hidden;
-    position: relative;
-    background: var(--sky-light);
-  }
-
-  .hero-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* ========== HERO TEXT ========== */
-  .hero-text {
-    background: linear-gradient(135deg, var(--navy) 0%, #1565C0 60%, #0288D1 100%);
-    padding: clamp(40px, 7vw, 72px) 24px clamp(50px, 8vw, 90px);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-text::before {
-    content: '';
-    position: absolute;
-    top: -60px; left: -60px;
-    width: 220px; height: 220px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-  }
-
-  .hero-text::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; right: -40px;
-    width: 280px; height: 280px;
-    border-radius: 50%;
-    background: rgba(255,112,67,0.12);
-  }
-
-  .hero-eyebrow {
-    display: inline-block;
-    background: var(--orange);
-    color: #fff;
-    font-size: clamp(0.75rem, 2vw, 0.85rem);
-    font-weight: 700;
-    padding: 5px 18px;
-    border-radius: 20px;
-    margin-bottom: 18px;
-    letter-spacing: 0.05em;
-  }
-
-  .hero-headline {
-    font-size: clamp(1.6rem, 5.5vw, 3rem);
-    font-weight: 900;
-    color: #fff;
-    line-height: 1.35;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-headline em {
-    font-style: normal;
-    color: #FFD54F;
-  }
-
-  .hero-sub {
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-    color: rgba(255,255,255,0.88);
-    max-width: 560px;
-    margin: 0 auto 32px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-cta-wrap {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 1;
-  }
-
-  .btn-primary {
-    background: var(--orange);
-    color: #fff;
-    font-family: var(--font);
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-    font-weight: 700;
-    padding: 16px 36px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    box-shadow: 0 4px 18px rgba(255,112,67,0.45);
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(255,112,67,0.5);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: #fff;
-    font-family: var(--font);
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
-    font-weight: 700;
-    padding: 15px 32px;
-    border-radius: 50px;
-    border: 2px solid rgba(255,255,255,0.7);
-    cursor: pointer;
-    display: inline-block;
-    transition: background 0.15s, border-color 0.15s;
-  }
-
-  .btn-outline:hover {
-    background: rgba(255,255,255,0.12);
-    border-color: #fff;
-  }
-
-  /* ========== WAVE ========== */
-  .wave-bottom {
-    display: block;
-    width: 100%;
-    height: 60px;
-    margin-top: -2px;
-  }
-
-  .wave-top {
-    display: block;
-    width: 100%;
-    height: 60px;
-    margin-bottom: -2px;
-  }
-
-  /* ========== SECTION COMMON ========== */
-  .section {
-    padding: clamp(48px, 8vw, 88px) 24px;
-  }
-
-  .section-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    font-size: clamp(1.3rem, 4vw, 2rem);
-    font-weight: 900;
-    color: var(--navy);
-    text-align: center;
-    margin-bottom: 10px;
-    line-height: 1.35;
-  }
-
-  .section-title span {
-    display: inline-block;
-    border-bottom: 4px solid var(--orange);
-    padding-bottom: 4px;
-  }
-
-  .section-lead {
-    text-align: center;
-    color: var(--text-light);
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    margin-bottom: 40px;
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* ========== FEATURES (イチオシ) ========== */
-  .features-bg {
-    background: var(--mint);
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-
-  .feature-card {
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 28px 24px;
-    box-shadow: 0 3px 16px rgba(41,182,246,0.10);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .feature-icon {
-    font-size: 2.4rem;
-    line-height: 1;
-  }
-
-  .feature-title {
-    font-size: 1.05rem;
-    font-weight: 900;
-    color: var(--navy);
-  }
-
-  .feature-desc {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.65;
-  }
-
-  /* ========== COURSES ========== */
-  .courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
-
-  .course-card {
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 2px solid var(--sky-light);
-    background: #fff;
-  }
-
-  .course-head {
-    padding: 18px 22px 14px;
-    background: linear-gradient(135deg, var(--navy) 0%, #1565C0 100%);
-    color: #fff;
-  }
-
-  .course-head h3 {
-    font-size: 1rem;
-    font-weight: 900;
-  }
-
-  .course-tag {
-    font-size: 0.7rem;
-    font-weight: 700;
-    background: rgba(255,255,255,0.22);
-    display: inline-block;
-    padding: 2px 9px;
-    border-radius: 20px;
-    margin-top: 4px;
-  }
-
-  .course-body {
-    padding: 18px 22px;
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.65;
-  }
-
-  /* ========== TRIAL BANNER ========== */
-  .trial-banner {
-    background: linear-gradient(135deg, var(--orange) 0%, #FF8A65 100%);
-    border-radius: var(--radius);
-    padding: clamp(32px, 6vw, 54px) clamp(24px, 5vw, 60px);
-    text-align: center;
-    color: #fff;
-    box-shadow: 0 8px 32px rgba(255,112,67,0.30);
-  }
-
-  .trial-banner h2 {
-    font-size: clamp(1.4rem, 4vw, 2rem);
-    font-weight: 900;
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
-
-  .trial-banner p {
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    opacity: 0.92;
-    margin-bottom: 28px;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .trial-btn {
-    background: #fff;
-    color: var(--orange);
-    font-family: var(--font);
-    font-size: clamp(1rem, 3vw, 1.15rem);
-    font-weight: 900;
-    padding: 16px 44px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    transition: transform 0.15s;
-  }
-
-  .trial-btn:hover { transform: translateY(-2px); }
-
-  /* ========== STRENGTHS ========== */
-  .strengths-bg {
-    background: var(--sky-light);
-  }
-
-  .strength-list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .strength-item {
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 22px 26px;
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-    box-shadow: 0 2px 12px rgba(41,182,246,0.08);
-  }
-
-  .strength-num {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--sky) 0%, var(--navy-mid) 100%);
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .strength-content h3 {
-    font-size: 1rem;
-    font-weight: 900;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
-
-  .strength-content p {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.65;
-  }
-
-  /* ========== STORY ========== */
-  .story-box {
-    background: linear-gradient(135deg, var(--navy) 0%, #1565C0 100%);
-    border-radius: var(--radius);
-    padding: clamp(32px, 6vw, 54px) clamp(24px, 5vw, 54px);
-    color: #fff;
-    display: flex;
-    gap: 32px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .story-icon {
-    font-size: 4rem;
-    flex-shrink: 0;
-  }
-
-  .story-text h3 {
-    font-size: 1.2rem;
-    font-weight: 900;
-    margin-bottom: 14px;
-    color: #FFD54F;
-  }
-
-  .story-text p {
-    font-size: 0.92rem;
-    line-height: 1.8;
-    opacity: 0.93;
-  }
-
-  /* ========== COMING SOON ========== */
-  .coming-card {
-    border: 2px dashed var(--sky);
-    border-radius: var(--radius);
-    padding: 28px 28px;
-    text-align: center;
-    background: var(--sky-light);
-  }
-
-  .coming-card h3 {
-    font-size: 1.05rem;
-    font-weight: 900;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-
-  .coming-card p {
-    font-size: 0.9rem;
-    color: var(--text-light);
-  }
-
-  .coming-badge {
-    display: inline-block;
-    background: var(--orange);
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 3px 12px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-  }
-
-  /* ========== MAP ========== */
-  .map-section { background: var(--mint); }
-
-  .map-wrap {
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(41,182,246,0.15);
-    margin-bottom: 20px;
-  }
-
-  .map-wrap iframe {
-    width: 100%;
-    height: 360px;
-    border: 0;
-    display: block;
-  }
-
-  .map-btn-wrap {
-    text-align: center;
-    margin-top: 8px;
-  }
-
-  .map-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #fff;
-    color: var(--navy);
-    font-family: var(--font);
-    font-size: 0.95rem;
-    font-weight: 700;
-    padding: 13px 32px;
-    border-radius: 50px;
-    border: 2px solid var(--sky);
-    box-shadow: 0 2px 10px rgba(41,182,246,0.15);
-    transition: background 0.15s;
-  }
-
-  .map-btn:hover { background: var(--sky-light); }
-
-  /* ========== ACCESS ========== */
-  .access-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-  }
-
-  .access-table th,
-  .access-table td {
-    padding: 14px 16px;
-    border-bottom: 1px solid #e0e0e0;
-    text-align: left;
-    vertical-align: top;
-  }
-
-  .access-table th {
-    width: 100px;
-    font-weight: 700;
-    color: var(--navy);
-    white-space: nowrap;
-  }
-
-  .access-table td a {
-    color: var(--sky);
-    text-decoration: underline;
-  }
-
-  /* ========== SNS ========== */
-  .sns-row {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 24px;
-  }
-
-  .sns-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #fff;
-    border-radius: 50px;
-    padding: 12px 24px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--navy);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    border: 1px solid #e0e0e0;
-    transition: box-shadow 0.15s;
-  }
-
-  .sns-link:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.14); }
-
-  .sns-link svg { flex-shrink: 0; }
-
-  /* ========== FOOTER ========== */
-  .footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.85);
-    text-align: center;
-    padding: 36px 24px 28px;
-  }
-
-  .footer-name {
-    font-size: 1.1rem;
-    font-weight: 900;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
-  }
-
-  .footer-links a {
-    color: var(--sky);
-    font-size: 0.88rem;
-    font-weight: 700;
-    text-decoration: underline;
-  }
-
-  .footer-copy {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.45);
-    margin-top: 10px;
-  }
-
-  /* ========== RESPONSIVE ========== */
-  @media (max-width: 480px) {
-    .hero-cta-wrap { flex-direction: column; align-items: center; }
-    .btn-primary, .btn-outline { width: 100%; max-width: 320px; text-align: center; }
-    .story-box { flex-direction: column; gap: 16px; }
-    .strength-item { flex-direction: column; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIRAI体操クラブ | 1歳半から始められる体操教室・静岡県沼津市</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy:    #0B3D91;
+      --navy-dk: #072970;
+      --navy-lt: #1A56C4;
+      --orange:  #FF6020;
+      --orange-lt: #FF8C52;
+      --bg:      #F4F7FF;
+      --text:    #1A1A2E;
+      --muted:   #5E6E8A;
+      --white:   #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--navy);
+      padding: 14px 20px;
+      text-align: center;
+    }
+
+    .header-link {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      transition: opacity 0.2s;
+    }
+
+    .header-link:hover {
+      opacity: 0.8;
+    }
+
+    /* ===== HERO IMAGE ===== */
+    .hero-image {
+      width: 100%;
+      max-height: 520px;
+      overflow: hidden;
+      background: var(--navy-dk);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== HERO TEXT ===== */
+    .hero-text {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 52px 24px 56px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 4px 16px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-size: clamp(1.65rem, 5.5vw, 2.5rem);
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .hero-sub {
+      font-size: 0.97rem;
+      color: #c5d5f5;
+      max-width: 460px;
+      margin: 0 auto 32px;
+      line-height: 1.85;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(255, 96, 32, 0.4);
+    }
+
+    .hero-cta:hover {
+      background: var(--orange-lt);
+      transform: translateY(-2px);
+    }
+
+    /* ===== SECTION BASE ===== */
+    .section {
+      padding: 64px 20px;
+    }
+
+    .section--alt {
+      background: var(--bg);
+    }
+
+    .section-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    .section-title em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .accent-bar {
+      width: 40px;
+      height: 4px;
+      background: var(--orange);
+      border-radius: 2px;
+      margin: 14px auto 0;
+    }
+
+    /* ===== FEATURED SERVICE (イチオシ) ===== */
+    .feature-primary {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
+      border-radius: 12px;
+      padding: 28px 24px;
+      color: var(--white);
+      margin-bottom: 16px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .feature-primary-icon {
+      font-size: 2.4rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .feature-primary-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .feature-primary h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+
+    .feature-primary p {
+      font-size: 0.9rem;
+      color: #c5d5f5;
+      line-height: 1.8;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feature-item {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 20px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border: 1px solid #dde5f8;
+    }
+
+    .feature-item-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .feature-item h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .feature-item p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ===== STRENGTHS ===== */
+    .strength-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .strength-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 20px;
+      border-left: 4px solid var(--navy);
+    }
+
+    .strength-label {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .strength-item h3 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .strength-item p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ===== COMING SOON ===== */
+    .coming-soon-card {
+      border: 2px dashed var(--orange);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      background: #fff9f6;
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .coming-soon-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .coming-soon-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* ===== REVIEWS ===== */
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .review-card {
+      background: var(--white);
+      border: 1px solid #dde5f8;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .review-stars {
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: #F5A623;
+      margin-bottom: 8px;
+    }
+
+    .review-card p {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ===== ACCESS ===== */
+    .access-details {
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .access-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.93rem;
+    }
+
+    .access-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 3px;
+      width: 20px;
+    }
+
+    .access-row a {
+      color: var(--navy-lt);
+      text-decoration: none;
+    }
+
+    .access-row a:hover {
+      text-decoration: underline;
+    }
+
+    .map-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(11, 61, 145, 0.1);
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 280px;
+      border: 0;
+      display: block;
+    }
+
+    .map-btn-wrap {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 11px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .map-btn:hover {
+      background: var(--navy-lt);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-box {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
+      border-radius: 14px;
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .contact-box h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .contact-box .sub {
+      font-size: 0.88rem;
+      color: #c5d5f5;
+      margin-bottom: 28px;
+    }
+
+    .contact-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 320px;
+      padding: 15px 20px;
+      border-radius: 6px;
+      font-size: 0.97rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-btn:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+
+    .contact-btn--tel {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .contact-btn--mail {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .tel-note {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #c5d5f5;
+      margin-top: 10px;
+    }
+
+    /* ===== SNS ===== */
+    .sns-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .sns-section p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .sns-icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .sns-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .sns-link:hover {
+      transform: scale(1.1);
+      opacity: 0.88;
+    }
+
+    .sns-link--fb {
+      background: #1877F2;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0C1325;
+      color: #8a9ab8;
+      text-align: center;
+      padding: 36px 20px;
+    }
+
+    .footer-name {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .footer-addr {
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-official {
+      display: inline-block;
+      color: #93c5fd;
+      font-size: 0.83rem;
+      text-decoration: none;
+      border-bottom: 1px solid #93c5fd40;
+      padding-bottom: 1px;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+
+    .footer-official:hover {
+      color: #bfdbfe;
+    }
+
+    .footer-copy {
+      font-size: 0.73rem;
+      color: #3d5070;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 600px) {
+      .review-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .feature-primary {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-btn {
+        max-width: 100%;
+      }
+    }
+
+  </style>
 </head>
 <body>
 
-<!-- ========== HEADER ========== -->
-<header class="header">
-  <div class="header-name">
-    <a href="http://npo.family-trampoline.com/" target="_blank" rel="noopener">
-      ファミリートランポリンクラブ
-      <span class="header-badge">公式</span>
-    </a>
+  <!-- ========== HEADER ========== -->
+  <header>
+    <a href="https://www.mirai-gym.com/" target="_blank" rel="noopener" class="header-link">MIRAI体操クラブ</a>
+  </header>
+
+  <!-- ========== HERO IMAGE ========== -->
+  <div class="hero-image">
+    <img src="images/hero321.png" alt="MIRAI体操クラブ 体操レッスンの様子">
   </div>
-  <div class="header-tel">
-    <span>📞</span>
-    <a href="tel:0559001758">055-900-1758</a>
+
+  <!-- ========== HERO TEXT ========== -->
+  <div class="hero-text">
+    <span class="hero-eyebrow">Gymnastics Club · 静岡県沼津市</span>
+    <h1 class="hero-headline">
+      <em>1歳半</em>から、<br>
+      本格的な体操教室へ。
+    </h1>
+    <p class="hero-sub">
+      親子クラスから選抜の競技クラスまで、<br>
+      お子様の成長ステップに合わせた指導体制。<br>
+      無料駐車場完備で通いやすい環境です。
+    </p>
+    <a href="mailto:mirai-gym@e-mail.jp" class="hero-cta">お問い合わせ・見学はこちら</a>
   </div>
-</header>
 
-<!-- ========== HERO IMAGE ========== -->
-<div class="hero-img-wrap">
-  <img src="images/hero322.png" alt="ファミリートランポリンクラブ トランポリン体験">
-</div>
-
-<!-- ========== HERO TEXT ========== -->
-<section class="hero-text">
-  <h1 class="hero-headline">
-    とぶ。たのしい。<br>
-    <em>みんなのトランポリン</em>
-  </h1>
-  <p class="hero-sub">
-    幼児から高齢者、障がいのある方まで。<br>
-    だれでも楽しめるトランポリンクラブ。
-  </p>
-  <div class="hero-cta-wrap">
-    <a href="tel:0559001758" class="btn-primary">📞 お電話でお問い合わせ</a>
-    <a href="http://npo.family-trampoline.com/" target="_blank" rel="noopener" class="btn-outline">公式サイトを見る</a>
-  </div>
-</section>
-
-<!-- wave -->
-<svg class="wave-bottom" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#1565C0;">
-  <path d="M0,0 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="#E0F7FA"/>
-</svg>
-
-<!-- ========== FEATURES ========== -->
-<section class="section features-bg">
-  <div class="section-inner">
-    <h2 class="section-title"><span>このクラブの特長</span></h2>
-    <p class="section-lead">だれでも、どんな目的でも楽しめる場所です。</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">👶👵</div>
-        <div class="feature-title">年齢・体力問わず歓迎</div>
-        <div class="feature-desc">幼児から高齢者まで、初心者の方でも楽しく参加できるプログラムをご用意しています。</div>
+  <!-- ========== FEATURED SERVICE ========== -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">MIRAI体操クラブの<em>5つの特長</em></h2>
+        <div class="accent-bar"></div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">♿</div>
-        <div class="feature-title">インクルーシブな指導</div>
-        <div class="feature-desc">障がいのある方や、支援が必要な方も安心して通えるよう、専門スタッフが対応します。放課後等デイサービス等の団体利用も可能です。</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💪</div>
-        <div class="feature-title">楽しく健康・体力アップ</div>
-        <div class="feature-desc">インナーマッスルを鍛え、体のバランス調整や空中感覚の習得に役立ちます。楽しみながら自然と体が動きます。</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎓</div>
-        <div class="feature-title">専門資格を持つ講師陣</div>
-        <div class="feature-desc">健康運動実践指導者・障害者スポーツ指導員など、多角的な専門知識を持つスタッフが在籍しています。</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ========== STRENGTHS ========== -->
-<svg class="wave-bottom" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#fff;">
-  <path d="M0,0 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="#E1F5FE"/>
-</svg>
-
-<section class="section strengths-bg" style="padding-top: 16px;">
-  <div class="section-inner">
-    <h2 class="section-title"><span>選ばれる3つの理由</span></h2>
-    <p class="section-lead">長年地域に根ざしてきた実績と、専門性の高い指導が支えています。</p>
-    <div class="strength-list">
-      <div class="strength-item">
-        <div class="strength-num">1</div>
-        <div class="strength-content">
-          <h3>インクルーシブな指導体制</h3>
-          <p>障がいのある方や高齢者に特化した指導をはじめ、子供からアスリートまで幅広く対応。だれもが自分のペースで成長できる環境を大切にしています。</p>
+      <!-- イチオシ -->
+      <div class="feature-primary">
+        <div class="feature-primary-icon">👶</div>
+        <div>
+          <span class="feature-primary-badge">イチオシ</span>
+          <h3>1歳半から始められる一貫指導</h3>
+          <p>未就園児向けの親子クラスから、幼児・小学生クラス、そして本格的な競技を目指す上級クラスまで、成長のあらゆる段階に対応した指導体制が整っています。</p>
         </div>
       </div>
-      <div class="strength-item">
-        <div class="strength-num">2</div>
-        <div class="strength-content">
-          <h3>本格的な競技設備</h3>
-          <p>安全性と品質にこだわった設備で、質の高い練習が可能です。</p>
+
+      <div class="feature-list">
+
+        <div class="feature-item">
+          <div class="feature-item-icon">🤸</div>
+          <div>
+            <h3>楽しく運動能力を育てる</h3>
+            <p>遊びの要素を取り入れながら「跳ぶ・回る・支える」といった体操の基本動作を学び、お子様の運動能力と自信を育てることを大切にしています。</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">🏆</div>
+          <div>
+            <h3>競技大会への参加と実績</h3>
+            <p>楽しむ段階から、育成クラスとして大会へ出場・入賞を目指す段階まで、高いレベルの演技習得をサポートする環境が充実しています。</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">🏛️</div>
+          <div>
+            <h3>充実の常設施設と専用設備</h3>
+            <p>マット・鉄棒・トランポリン等を備えた専用の常設施設で、安全に配慮された環境のもと一年中レッスンに集中していただけます。</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-item-icon">🚗</div>
+          <div>
+            <h3>無料駐車場完備で安心</h3>
+            <p>無料の専用駐車場を完備しており、お車での送迎もスムーズです。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STRENGTHS ========== -->
+  <section class="section section--alt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">選ばれる<em>3つの理由</em></h2>
+        <div class="accent-bar"></div>
+      </div>
+      <div class="strength-list">
+
+        <div class="strength-item">
+          <div class="strength-label">1</div>
+          <div>
+            <h3>幅広い対象年齢への対応</h3>
+            <p>1歳半の親子クラスから選抜の上級クラスまで、成長に合わせた段階的な指導を継続して受けられます。</p>
+          </div>
+        </div>
+
+        <div class="strength-item">
+          <div class="strength-label">2</div>
+          <div>
+            <h3>本格的な設備と豊富な競技実績</h3>
+            <p>マット・鉄棒・トランポリンを完備した本格施設のもと、競技大会への出場・入賞実績も積み重ねています。</p>
+          </div>
+        </div>
+
+        <div class="strength-item">
+          <div class="strength-label">3</div>
+          <div>
+            <h3>無料駐車場で通いやすい</h3>
+            <p>無料専用駐車場により、近隣市町からも通いやすい環境です。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMING SOON ========== -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">近日公開予定の<em>新サービス</em></h2>
+        <div class="accent-bar"></div>
+      </div>
+      <div class="coming-soon-card">
+        <span class="coming-soon-badge">準備中</span>
+        <h3>🎥 練習動画の共有サービス</h3>
+        <p>お子様のレッスンの様子を動画で確認・共有できるサービスを準備中です。詳細はもうしばらくお待ちください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ACCESS ========== -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title"><em>アクセス</em></h2>
+        <div class="accent-bar"></div>
+      </div>
+
+      <div class="access-details">
+        <div class="access-row">
+          <span class="access-icon">📍</span>
+          <span>〒410-0022 静岡県沼津市大岡２４２３</span>
+        </div>
+        <div class="access-row">
+          <span class="access-icon">🚗</span>
+          <span>無料専用駐車場あり</span>
+        </div>
+        <div class="access-row">
+          <span class="access-icon">📞</span>
+          <a href="tel:0559290233">055-929-0233</a>
+        </div>
+        <div class="access-row">
+          <span class="access-icon">✉️</span>
+          <a href="mailto:mirai-gym@e-mail.jp">mirai-gym@e-mail.jp</a>
         </div>
       </div>
-      <div class="strength-item">
-        <div class="strength-num">3</div>
-        <div class="strength-content">
-          <h3>多角的な専門知識を持つスタッフ</h3>
-          <p>健康運動実践指導者、障害者スポーツ指導員など、多角的な専門資格を持つスタッフが在籍。「心・技・体」の向上を大切にした指導を行っています。</p>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.66354591765!2d138.8826758!3d35.115111399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60199b8d4190d94b%3A0x34eceeb1cee94a63!2zTUlSQUnkvZPmk43jgq_jg6njgpY!5e0!3m2!1sja!2sjp!4v1791939944465!5m2!1sja!2sjp"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="MIRAI体操クラブ 地図">
+        </iframe>
+      </div>
+
+      <div class="map-btn-wrap">
+        <a
+          href="https://www.google.com/maps/place/MIRAI%E4%BD%93%E6%93%8D%E3%82%AF%E3%83%A9%E3%83%96/@35.1151114,138.8826758,17z/data=!3m1!4b1!4m6!3m5!1s0x60199b8d4190d94b:0x34eceeb1cee94a63!8m2!3d35.1151114!4d138.8826758!16s%2Fg%2F11jgvhqnmw?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAxMS4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener"
+          class="map-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Googleマップで見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section section--alt">
+    <div class="section-inner">
+      <div class="contact-box">
+        <h2>お気軽にお問い合わせください</h2>
+        <p class="sub">体験レッスン・入会・クラスについて、何でもご相談ください。</p>
+        <div class="contact-btns">
+          <a href="tel:0559290233" class="contact-btn contact-btn--tel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.87 2 2 0 0 1 3.59 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.5z"/>
+            </svg>
+            055-929-0233
+          </a>
+          <a href="mailto:mirai-gym@e-mail.jp" class="contact-btn contact-btn--mail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            メールでのお問い合わせ
+          </a>
         </div>
+        <p class="tel-note">受付時間はお電話でご確認ください</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ========== STORY ========== -->
-<svg class="wave-top" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#E1F5FE;">
-  <path d="M0,60 C360,0 1080,60 1440,20 L1440,0 L0,0 Z" fill="#fff"/>
-</svg>
-
-<section class="section" style="background:#fff; padding-top:0;">
-  <div class="section-inner">
-    <h2 class="section-title"><span>代表者ストーリー</span></h2>
-    <p class="section-lead">クラブ誕生の想いをご紹介します。</p>
-    <div class="story-box">
-      <div class="story-icon">🤸</div>
-      <div class="story-text">
-        <h3>代表 鈴木晶子</h3>
-        <p>
-          鈴木晶子さんが関わるファミリートランポリンクラブでは、トランポリンを通じたスポーツ活動に加え、障がいのある方も参加できる活動に取り組んでいます。
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== COMING SOON ========== -->
-<section class="section" style="background:var(--orange-light); padding-top: 0;">
-  <div class="section-inner">
-    <div class="coming-card">
-      <div class="coming-badge">🎬 準備中のサービス</div>
-      <h3>飛んでいる瞬間を写真・動画で！</h3>
-      <p>練習中の動画・写真を撮影・編集してお渡しするサービスを準備中です。お楽しみに！</p>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MAP ========== -->
-<svg class="wave-top" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:var(--orange-light);">
-  <path d="M0,60 C360,0 1080,60 1440,20 L1440,0 L0,0 Z" fill="var(--mint)"/>
-</svg>
-
-<section class="section map-section" style="padding-top:8px;">
-  <div class="section-inner">
-    <h2 class="section-title"><span>アクセス</span></h2>
-    <p class="section-lead">〒410-0012 静岡県沼津市岡一色45-3</p>
-
-    <div class="map-wrap">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.32621694185!2d138.8789252!3d35.123532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019850076909369%3A0x5b4647aa13c49f74!2z44OV44Kh44Of44Oq44O844OI44Op44Oz44Od44Oq44Oz44Kv44Op44OW!5e0!3m2!1sja!2sjp!4v1791266121654!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    </div>
-
-    <div class="map-btn-wrap">
-      <a href="https://www.google.com/maps/place/%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%83%88%E3%83%A9%E3%83%B3%E3%83%9D%E3%83%AA%E3%83%B3%E3%82%AF%E3%83%A9%E3%83%96/@35.123532,138.8789252,17z/data=!3m1!4b1!4m6!3m5!1s0x6019850076909369:0x5b4647aa13c49f74!8m2!3d35.123532!4d138.8789252!16s%2Fg%2F11xkfq046z?authuser=0&entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="map-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#1A237E"/>
+  <!-- ========== SNS ========== -->
+  <div class="sns-section">
+    <p>公式SNSでも情報を発信中</p>
+    <div class="sns-icons">
+      <a
+        href="https://www.facebook.com/MIRAI.GYM/"
+        target="_blank"
+        rel="noopener"
+        class="sns-link sns-link--fb"
+        aria-label="Facebook公式ページ">
+        <!-- Facebook 公式ブランドアイコン -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
         </svg>
-        Googleマップで見る
       </a>
     </div>
-
-    <br>
-
-    <table class="access-table">
-      <tr>
-        <th>住所</th>
-        <td>〒410-0012 静岡県沼津市岡一色45-3</td>
-      </tr>
-      <tr>
-        <th>電話</th>
-        <td><a href="tel:0559001758">055-900-1758</a></td>
-      </tr>
-    </table>
   </div>
-</section>
 
-<!-- ========== FOOTER ========== -->
-<footer class="footer">
-  <div class="footer-name">ファミリートランポリンクラブ</div>
-  <div class="footer-links">
-    <a href="http://npo.family-trampoline.com/" target="_blank" rel="noopener">公式サイト</a>
-    <a href="https://www.instagram.com/fami_tra_numazu/" target="_blank" rel="noopener">Instagram</a>
-    <a href="tel:0559001758">055-900-1758</a>
-  </div>
-  <div>〒410-0012 静岡県沼津市岡一色45-3</div>
-  <div class="footer-copy">© ファミリートランポリンクラブ All Rights Reserved.</div>
-</footer>
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p class="footer-name">MIRAI体操クラブ</p>
+    <p class="footer-addr">〒410-0022 静岡県沼津市大岡２４２３</p>
+    <a href="https://www.mirai-gym.com/" target="_blank" rel="noopener" class="footer-official">公式サイト：www.mirai-gym.com</a>
+    <p class="footer-copy">© 2026 MIRAI体操クラブ. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
